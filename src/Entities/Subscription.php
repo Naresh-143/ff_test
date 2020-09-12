@@ -60,4 +60,63 @@ class Subscription
      * @var \Carbon\Carbon|null
      */
     protected $nextDeliveryDate;
+
+    /**
+     * @param $status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return self::STATUSES_ALLOWED[$this->status];
+    }
+
+    /**
+     * @param $plan
+     *
+     * @return $this
+     */
+    public function setPlan($plan)
+    {
+        $this->plan = $plan;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlan()
+    {
+        return self::PLANS_ALLOWED[$this->plan];
+    }
+
+    /**
+     * @param $nextDeliveryDate
+     *
+     * @return $this
+     */
+    public function setNextDeliveryDate($nextDeliveryDate)
+    {
+        $this->nextDeliveryDate = $nextDeliveryDate;
+        return $this;
+    }
+
+
+    /**
+     * @return \Carbon\Carbon|null
+     */
+    public function getNextDeliveryDate()
+    {
+        return $this->nextDeliveryDate;
+    }
 }
